@@ -1,5 +1,4 @@
 import io.qameta.allure.Allure;
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -71,18 +70,23 @@ public class AutomationElementsTest {
         By numberOfElementInBracket = By.xpath("//tr[1]/td[3]/strong");
         wait.until((ExpectedConditions.presenceOfElementLocated(products)));
         List<WebElement> allProducts = driver.findElements(products);
+        int j=0;
         for (int i = 0; i < allProducts.size(); i++) {
             String[] productName = allProducts.get(i).getText().split("-");
             String formattedName = productName[0].trim();
 
-            List itemsNeededList = Arrays.asList(itemToAdd);
+            List<String> itemsNeededList = Arrays.asList(itemToAdd);
             if (itemsNeededList.contains(formattedName)) {
-                driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+                j++;
+                driver.findElements(By.xpath("//div[@class='product-action']/button")).get(i).click();
+            }
+            if(j==itemToAdd.length){
+                break;
             }
         }
         int itemsInBracket = Integer.parseInt(driver.findElement(numberOfElementInBracket).getText());
         int expectedItemsInBracket=2;
-        Assert.assertEquals(itemsInBracket,expectedItemsInBracket);
+        Assertions.assertEquals(itemsInBracket,expectedItemsInBracket);
     }
 
 }
