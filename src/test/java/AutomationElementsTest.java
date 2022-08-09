@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
@@ -19,7 +20,8 @@ public class AutomationElementsTest {
 
     @BeforeAll
     public static void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\kubiczem\\IdeaProjects\\SeleniumAutomationWebsite\\src\\main\\resources\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\kubiczem\\IdeaProjects\\SeleniumAutomationWebsite\\src\\main\\resources\\chromedriver.exe");
 
     }
 

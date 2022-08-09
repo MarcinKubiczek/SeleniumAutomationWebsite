@@ -1,17 +1,12 @@
-import framework.Application;
-import framework.helper.ElementExtension;
-import framework.helper.LocatorsExtension;
-import framework.helper.PageExtension;
+import UIBase.framework.Application;
+import UIBase.framework.helper.ElementExtension;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pageHelper.ActionHelper;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class AutomationPracticeWebsiteTest {
     private WebDriver driver;
